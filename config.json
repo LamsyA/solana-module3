@@ -1,10 +1,10 @@
 {
     "price": 0.01,
     "number": 10,
-    "symbol": "NB",
+    "symbol": "TKB",
     "sellerFeeBasisPoints": 500,
     "gatekeeper": null,
-    "solTreasuryAccount": "98TLazFjiT4tUJGxTRupwkEsUTVDd2A2MuU9twfjEh2U",
+    "solTreasuryAccount": "Ct5J4FfPtWeSUZxK966XmmXBTcPG4MuDJtyUGkKwTgNc",
     "splTokenAccount": null,
     "splToken": null,
     "goLiveDate": "2022-07-24T00:00:00Z",
@@ -17,7 +17,7 @@
     "isMutable": true,
     "creators": [
     {
-      "address": "98TLazFjiT4tUJGxTRupwkEsUTVDd2A2MuU9twfjEh2U",
+      "address": "Ct5J4FfPtWeSUZxK966XmmXBTcPG4MuDJtyUGkKwTgNc",
       "share": 100
     }
   ]
