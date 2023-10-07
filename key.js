@@ -1,4 +1,5 @@
-import fs from 'fs';
+import fs from 'fs'; // Add this import
+
 import {
   clusterApiUrl,
   Connection,
@@ -33,7 +34,7 @@ import {
 
   fs.writeFileSync('wallet.json', JSON.stringify(walletData, null, 2));
 
-  const secretData = {
+    const secretData = {
     toWallet: {
       secretKey: toWallet.secretKey.toString(),
     },
@@ -41,8 +42,9 @@ import {
 
   fs.writeFileSync('secret.json', JSON.stringify(secretData, null, 2));
 
-  // Step 2: Airdrop SOL into your from wallet
-  console.log("Airdropping some SOL to my wallet!");
+ // Step 2: Airdrop SOL into your from wallet
+console.log("Airdropping some SOL to my wallet!");
+try {
   const fromAirdropSignature = await connection.requestAirdrop(
     fromWallet.publicKey,
     LAMPORTS_PER_SOL
@@ -52,36 +54,46 @@ import {
   await connection.confirmTransaction(fromAirdropSignature, {
     commitment: "confirmed",
   });
+} catch (error) {
+  console.error('Error requesting airdrop:', error);
+  process.exit(1); // Exit the program on error
+}
 
-  // Step 3: Create a new token mint with the name "TXOKEN" and get the token account of the fromWallet address
-  // If the token account does not exist, create it
-  const mint = await createMint(
-    connection,
-    fromWallet,
-    fromWallet.publicKey,
-    null,
-    9, // You can specify the number of decimal places here
-    // Add the following line to set the token name to "TXOKEN"
-    { tokenName: "TXOKEN" }
-  );
-  const fromTokenAccount = await getOrCreateAssociatedTokenAccount(
-    connection,
-    fromWallet,
-    mint,
-    fromWallet.publicKey
-  );
+ // Step 3: Create a new token mint and get the token account of the fromWallet address
+// If the token account does not exist, create it
+const mint = await createMint(
+  connection,
+  fromWallet,
+  fromWallet.publicKey,
+  null,
+  9,
+  { tokenName: "TXOKEN" }
+);
+const fromTokenAccount = await getOrCreateAssociatedTokenAccount(
+  connection,
+  fromWallet,
+  mint,
+  fromWallet.publicKey
+);
 
-  // Step 4: Mint a new token to the from account
+// ...
+
+// Step 4: Mint 9,900,000,000,000,000 (9.9 quadrillion) tokens to the from account
+try {
   let signature = await mintTo(
     connection,
     fromWallet,
     mint,
     fromTokenAccount.address,
     fromWallet.publicKey,
-    91999000000000000000,
+    9999900000000000000,
     []
   );
   console.log('mint tx:', signature);
+} catch (error) {
+  console.error('Error minting tokens:', error);
+  process.exit(1); // Exit the program on error
+}
 
   // Step 5: Get the token account of the to-wallet address and if it does not exist, create it
   const toTokenAccount = await getOrCreateAssociatedTokenAccount(
@@ -99,7 +111,7 @@ import {
     fromTokenAccount.address,
     toTokenAccount.address,
     fromWallet.publicKey,
-    1999000000000000000,
+    999989000000000,
     []
   );
   console.log('transfer tx:', signature);
