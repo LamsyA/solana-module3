@@ -1,5 +1,4 @@
-import fs from 'fs'; // Add this import
-
+import fs from 'fs';
 import {
   clusterApiUrl,
   Connection,
@@ -34,7 +33,7 @@ import {
 
   fs.writeFileSync('wallet.json', JSON.stringify(walletData, null, 2));
 
-    const secretData = {
+  const secretData = {
     toWallet: {
       secretKey: toWallet.secretKey.toString(),
     },
@@ -54,14 +53,16 @@ import {
     commitment: "confirmed",
   });
 
-  // Step 3: Create a new token mint and get the token account of the fromWallet address
+  // Step 3: Create a new token mint with the name "TXOKEN" and get the token account of the fromWallet address
   // If the token account does not exist, create it
   const mint = await createMint(
     connection,
     fromWallet,
     fromWallet.publicKey,
     null,
-    9
+    9, // You can specify the number of decimal places here
+    // Add the following line to set the token name to "TXOKEN"
+    { tokenName: "TXOKEN" }
   );
   const fromTokenAccount = await getOrCreateAssociatedTokenAccount(
     connection,
@@ -77,7 +78,7 @@ import {
     mint,
     fromTokenAccount.address,
     fromWallet.publicKey,
-    1000000000,
+    91999000000000000000,
     []
   );
   console.log('mint tx:', signature);
@@ -98,7 +99,7 @@ import {
     fromTokenAccount.address,
     toTokenAccount.address,
     fromWallet.publicKey,
-    1000000000,
+    1999000000000000000,
     []
   );
   console.log('transfer tx:', signature);

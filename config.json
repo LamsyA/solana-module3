@@ -5,8 +5,8 @@
   "sellerFeeBasisPoints": 50,
   "gatekeeper": null,
   "solTreasuryAccount": null,
-  "splTokenAccount": "62H1PSRkJiNRjrJqaGASz7y8sPa4uT3schqcB65wqGbk",
-  "splToken": "G3V2vTACgxi1oP2Urcu6cMgfVhmNM8TpwwnEXVSTP22c",
+  "splTokenAccount": "EVbwPS1A4pxyVkE8yxvJEzGb4ZMW1MPLeAGjTVqbTcbc",
+  "splToken": "2bEmnemGqLmuHb61bvrX2J9j1tKqvyW9N7XdJUHr56tH",
   "goLiveDate": null,
   "endSettings": null,
   "whitelistMintSettings": null,
@@ -20,7 +20,7 @@
   "isMutable": true,
   "creators": [
     {
-      "address": "62H1PSRkJiNRjrJqaGASz7y8sPa4uT3schqcB65wqGbk",
+      "address": "EVbwPS1A4pxyVkE8yxvJEzGb4ZMW1MPLeAGjTVqbTcbc",
       "share": 100
     }
   ]
