@@ -5,13 +5,13 @@
   "sellerFeeBasisPoints": 50,
   "gatekeeper": null,
   "solTreasuryAccount": null,
-  "splTokenAccount": 0.01,
-  "splToken": null,
+  "splTokenAccount": "62H1PSRkJiNRjrJqaGASz7y8sPa4uT3schqcB65wqGbk",
+  "splToken": "G3V2vTACgxi1oP2Urcu6cMgfVhmNM8TpwwnEXVSTP22c",
   "goLiveDate": null,
   "endSettings": null,
   "whitelistMintSettings": null,
   "hiddenSettings": null,
-  "uploadMethod": "bundlr"  ,
+  "uploadMethod": "bundlr",
   "ipfsInfuraProjectId": null,
   "ipfsInfuraSecret": null,
   "nftStorageKey": null,
@@ -20,7 +20,7 @@
   "isMutable": true,
   "creators": [
     {
-      "address": "NxfBxfqTbxZpn89hMe1WYsMDDgJsaAE5Brk6X4jsUTU",
+      "address": "62H1PSRkJiNRjrJqaGASz7y8sPa4uT3schqcB65wqGbk",
       "share": 100
     }
   ]
